@@ -1,0 +1,22 @@
+#include <stdio.h>
+int plus(int * num1, int* num2);
+int minus(int * num1, int*num2);
+int multiple(int * num1, int* num2);
+int division(int *num1, int*num2);
+int main(){
+    int num1[1000];
+    int num2[1000];
+    
+    }
+int plus(int*num1, int * num2){
+    int j [2];
+    int a;
+    result[1000];
+    for(int i=999; i--;){
+        a = num1[i] + num2[i];
+        j[1] = a /10;
+        j[0]=a%10;
+        
+        
+    }
+}
