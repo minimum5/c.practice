@@ -21,3 +21,9 @@ int plus(int*num1, int * num2){
         
     }
 }
+
+int minus(int*num1, int * num2){
+    for(int i=999; i>=0; i--){
+        num1[i]-num2[i];
+    }
+}
