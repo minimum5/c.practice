@@ -1,29 +1,96 @@
 #include <stdio.h>
-int plus(int * num1, int* num2);
-int minus(int * num1, int*num2);
-int multiple(int * num1, int* num2);
-int division(int *num1, int*num2);
+int plus(int * num1);
+int minus(int * num1);
+int multiple(int * num1);
+int division(int *num1);
 int main(){
+    int n; //자릿수
     int num1[1000];
-    int num2[1000];
+    int a;
+    int cal;
+    
+    printf("자릿수 입력: \n");
+    scanf("%d", &n);
+    printf("한 자리씩 수 입력: \n");
+    for(int i=999; i>999-n; i--){
+        scanf("%d", &a);
+        num1[i] = a;
+    }
+    printf("계산 방법\n 1. 덧셈 2.뺄셈 3.곱셈 4. 나눗셈 ");
+    scanf("%d", &cal);
+    
+    
+    switch(cal){
+        case 1: 
+        plus(num1);
+        break;
+        
+        case 2:
+        minus(num1);
+        break;
+        
+        case 3:
+        case 4:
+        
+        default:
+        break;
+    }
     
     }
-int plus(int*num1, int * num2){
+int plus(int*num1){
+    int num2[1000];
     int j [2];
     int a;
-    result[1000];
-    for(int i=999; i--;){
+    int result[1000]; 
+    int n;
+    
+    printf("자릿수 입력: \n");
+    scanf("%d", &n);
+    printf("수입력: \n");
+    for(int i=n; i> 0; i--){
+        scanf("%d", &a);
+        num2[i] = a;
+    }
+    
+    for(int i=999; i>= 0; i--){
         a = num1[i] + num2[i];
         j[1] = a /10;
         j[0]=a%10;
-        result[i] = j[1];
-        num1[i-1]=j[0];
+        result[i] = j[0];
+        num1[i-1]+=j[1];
         
+    }
+    
+    for(int i = 1000-n; i<1000; i++){
+        printf("%d", result[i]);
     }
 }
 
-int minus(int*num1, int * num2){
-    for(int i=999; i>=0; i--){
-        num1[i]-num2[i];
+int minus(int*num1){
+    int num2[1000];
+    int j [2];
+    int a;
+    int result[1000];
+    int n;
+    
+    printf("자릿수 입력: \n");
+    scanf("%d", &n);
+    printf("한자리씩 수 입력: \n");
+    
+    for(int i=999; i>999-n; i--){
+        scanf("%d", &a);
+        num2[i] = a;
+    }
+
+    for(int i=999; i>= 0; i--){
+        if(num1[i]<num2[i]){
+            result[i] = num1[i]+10-num2[i];
+            num1[i-1]-= 1;
+        }
+        else{result[i]=num1[i]-num2[i];}
+    }
+    
+    for(int i = 1000-n; i<1000; i++){
+        printf("%d", result[i]);
     }
 }
