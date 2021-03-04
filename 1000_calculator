@@ -1,11 +1,12 @@
 #include <stdio.h>
-int plus(int * num1, int N);
+int plus(int * num1, int * num2, int N);
 int minus(int * num1, int N); /* 개선: 음의 정수 */
 int multiple(int * num1);
 int division(int *num1);
+
 int main(){
     int n; //자릿수
-    int num1[1000];
+    int num[1000][1000] ={0};
     int a;
     int cal;
     
@@ -38,37 +39,45 @@ int main(){
     
     }
 int plus(int*num1, int N){
-    int num2[1000];
-    int j [2];
-    int a;
-    int result[1000]; 
-    int n;
+    int num2[1000] = {0};
+    int a; //각 자릿수의 합
+    int result[1001] = {0}; //결과값 배열 
+    int n; //num2의자릿수
+    int k;//계산결과 자릿수;
     
     printf("자릿수 입력: \n");
     scanf("%d", &n);
-    printf("수입력: \n");
-    for(int i=1000 -n; i < 1000 ; i++){
+    printf("수 입력: \n");
+    
+    for(int i=1000-n; i < 1000 ; i++){
         scanf("%d", &a);
         num2[i] = a;
     }
     
     for(int i=999; i>= 0; i--){
         a = num1[i] + num2[i];
-        j[1] = a /10;
-        j[0]=a%10;
-        result[i] = j[0];
-        num1[i-1]+=j[1];
+        result[i+1] =a%10;
+        num1[i-1]+= a/10;
         
     }
     
-    for(int i = 1000-N; i<1000; i++){
+    if(N>n){
+        k =N;
+    }
+    else{
+        k =n;
+    }
+    
+    
+    for(int i = 0 ; i<1001; i++){
+        if(result[i]!=0){
         printf("%d", result[i]);
+        }
     }
 }
 
 int minus(int*num1, int N){
     int num2[1000];
-    int j [2];
     int a;
     int result[1000];
     int n;
@@ -90,7 +99,21 @@ int minus(int*num1, int N){
         else{result[i]=num1[i]-num2[i];}
     }
     
-    for(int i =1000- N; i<1000; i++){
+   for(int i = 0 ; i<1001; i++){
+        if(result[i]!=0){
         printf("%d", result[i]);
+        }
     }
+}
+
+int multiple(int * num1 ,int N){
+    int num2[1000] ={0};
+    int result[1000000]={0};
+    
+    printf("자릿수 입력: \n");
+    scanf("%d", &n);
+    printf("한자리씩 수 입력: \n");
+    
+    
+    
 }
