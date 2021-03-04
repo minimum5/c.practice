@@ -109,15 +109,11 @@ int minus(int*num1, int N){
 int multiple(int * num1 ,int N){
     int num2[1000] ={0};
     int result[1000000]={0};
+    int num3[1000] ={0};
+    int num4[1000]={0};
     
     printf("자릿수 입력: \n");
     scanf("%d", &n);
     printf("한자리씩 수 입력: \n");
     
-    
-    
-    
-    
-    
 }
-
