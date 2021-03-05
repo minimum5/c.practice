@@ -15,14 +15,14 @@ int main(){
     scanf("%d", &n1);
     printf("한 자리씩 수 입력: \n");
     for(int i= 1000-n1; i <1000; i++){
-        scanf("%d", num1[i]);
+        scanf("%d", &num1[i]);
     }
     
     printf("자릿수 입력: \n");
     scanf("%d", &n2);
     printf("한 자리씩 수 입력: \n");
     for(int i= 1000-n2; i <1000; i++){
-        scanf("%d", num2[i]);
+        scanf("%d", &num2[i]);
     }
     
     printf("계산 방법\n 1. 덧셈 2.뺄셈 3.곱셈 4. 나눗셈 ");
@@ -31,15 +31,16 @@ int main(){
     
     switch(cal){
         case 1: 
-        plus(num1, num2, int n1, int n2);
+        plus(num1, num2, n1, n2);
         break;
         
         case 2:
-        minus(num1, num2, int n1, int n2);
+        minus(num1, num2, n1, n2);
         break;
         
         case 3:
-        multiple(num1, num2, int n1, int n2);
+        multiple(num1, num2, n1, n2);
+        break;
         case 4:
         
         default:
@@ -47,7 +48,7 @@ int main(){
     }
     
     }
-int plus(int*num1,int *num2, int N){
+int plus(int*num1,int *num2, int n1, int n2){
     int a; //각 자릿수의 합
     int result[1001] = {0}; //결과값 배열 
     int n; //num2의자릿수
@@ -62,20 +63,19 @@ int plus(int*num1,int *num2, int N){
         
     }
     
-    if(N>n){
-        k =N;
+    if(n1>n2){
+        k =n1;
     }
     else{
-        k =n;
+        k =n2;
     }
     
     
     return result;
-    }
+    
 }
 
-int minus(int*num1, int N){
-    int num2[1000] = {0};
+int minus(int*num1, int *num2, int n1, int n2){
     int a;
     int result[1000] ={0};
     int n;
@@ -102,17 +102,20 @@ int minus(int*num1, int N){
 
 int multiple(int * num1, int *num2, int n1, int n2){
     int result[1000000]={0};
-    int num3[1000000] = {0};
-    int num4[1000000]= {0};
     int i,j;
     int a;
     
-    for(i=999; i>=0; i--){
+    for(i=0; i<=999; i++){
         for(j=999; j>= 0; j--){
-            a = num2[i]*num1[j];
+            a = num2[999-i]*num1[j];
             result[999999-i] += a%10;
             result[999998-i] +=a/10;
             
+        }
+    }
+    for(i=0; i<=999; i++){
+        if(result[i]!=0){
+        printf("%d", result[i]);
         }
     }
     
